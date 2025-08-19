@@ -11,5 +11,11 @@
   * with parantheses when wrapper elements  - multi-lined jsx
   * single jsx element
 
+### 02 Website Components
+ * JSX format
+ * Header
+ * Main
+ * Footer
+
 
   
