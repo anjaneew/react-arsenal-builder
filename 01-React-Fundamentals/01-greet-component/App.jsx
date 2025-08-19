@@ -1,3 +1,4 @@
+//Basic Syntax
 import Greet from './components/Greet.js';
 //importing the component
 
