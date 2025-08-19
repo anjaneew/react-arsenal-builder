@@ -1,8 +1,8 @@
 # React-Arsenal-Builder
 
-## React Fundamentals
+## 01 React Fundamentals
 
-### 01 Greet Component 
+### 01 Basic Syntax 
 * function expressions
 * arrow functions
 * registering the component
@@ -17,5 +17,37 @@
  * Main
  * Footer
 
+ ### 03 JSX Rules
+* return single parent element
+* all tags must be closed
+* camelCase
+* class > className
+* forms - for > htmlFor 
+* Expressions in JSX
+    * inside {}
+    * can be used to run js 
+    * variables, functions 
 
+### 04 Lists
+* rendered with loops
+* map() method recommended
+* Note: 1:
+within the return expression, inside callback functions, we do not use {}
+
+ ex: {users.map(()=> ( HERE ))}
+ instead of     () => {}      
+
+ * Note: 2:
+
+object destructring:
+{users.map((id, name, age)=> {id} {name}{age})}
+
+instead of 
+ {users.map((user)=> {user.id} {user.name}{user.age})}
   
+### 05 Props
+* allows parent component to pass on data to child components
+* (props) > {props.name}
+* ({img, name}) > {img, name}
+* booleans - conditional rendering
+   <p>Marrital Status: {isMarried ? "married" : "single"}</p>
