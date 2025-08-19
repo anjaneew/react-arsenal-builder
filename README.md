@@ -51,3 +51,19 @@ instead of
 * ({img, name}) > {img, name}
 * booleans - conditional rendering
    <p>Marrital Status: {isMarried ? "married" : "single"}</p>
+
+### 06 Children Props
+* const ChildA = (props) => {
+  return (<div>{props.children}</div>);
+}
+* using destructring {children}   
+
+### 07 Conditional Rendering
+* JSX stored in variables
+  const valid = <p>Welcome to chat room!</p>;
+* JSX  Components as functions
+  const ValidPassword = () => <p>Hello! Welcome to my channel.</p>;
+* &&
+{items.length > 0 && <h5>You have {items.length} items in your cart.</h5>}
+* Ternary Operator
+const MyPassword = ({ correct }) => correct? <CorrectPW /> : <WrongPW />; 
