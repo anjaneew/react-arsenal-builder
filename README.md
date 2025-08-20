@@ -70,5 +70,19 @@ instead of
 
 ### 08 Styles
 * Inline - 2 methods:
-* use double `{}` ex: `<p style={{backgroundColor: "red"}}></p>`
+* use double `{}` and camelCase ex: `<p style={{backgroundColor: "red"}}></p>`
 * use JSX varaiable ex: `const myStyles = {color: "white"}` then `<p style={myStyles}></p>`
+* using React Icons : 
+* `https://react-icons.github.io/react-icons/` > 
+* `npm install react-icons --save` >
+* import the icon in file: `import { PiBirdBold } from "react-icons/pi";` >
+* use icon as a component: `<PiBirdBold />`
+
+### 09 Events
+* camelCase `onClick` instead of `onclick`.
+* written in curly braces `onClick={shoot}` 
+* method 1: BEST `<button onClick={shoot}>Take the Shot!</button>` 
+and defining function seperately. 
+* method 2: passig argument using arrow function `<button onClick={() => console.log("Goal!")}>`
+* method 3: using react event object  
+  * ` <button onClick={(event) => shoot("Goal!", event)}>` 
