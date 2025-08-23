@@ -1,0 +1,52 @@
+*{
+    background-color: antiquewhite;
+}
+
+body{
+    display: flex;
+    flex-direction: row;
+    /* grid-template-rows: auto; */
+    align-items: center;
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    /* grid-template-rows: auto; */
+    align-items: center;
+    text-align: center;
+    border: 2px solid grey;
+    padding: 10px 15px;
+    flex-wrap: wrap;
+    margin-left: 10px;
+}
+
+.flexItem{
+    /* display: flex; */
+    max-width: 250px;
+    text-align: justify;
+}
+
+.big{
+    font-size: 2rem;
+    width: 100px;
+    height: 50px;
+}
+
+button{
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.popup{
+    position: absolute;
+    bottom: "3";
+    border: 1px solid rgb(48, 48, 94);
+}
+
+.copyinput{
+    position: relative;
+    margin-top: 6rem;
+}
