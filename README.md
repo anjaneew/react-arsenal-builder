@@ -86,3 +86,53 @@ and defining function seperately.
 * method 2: passig argument using arrow function `<button onClick={() => console.log("Goal!")}>`
 * method 3: using react event object  
   * ` <button onClick={(event) => shoot("Goal!", event)}>` 
+  
+#### FYI: Common Events:
+* Mouse Events:
+  * onClick
+  * onDoubleClick
+  * onMouseOver / onMouseEnter
+  * onMouseOut / onMouseLeave
+
+* Form Events:
+  * onChange (for inputs, selects, textareas)
+  * onSubmit
+  * onFocus
+  * onBlur
+
+* Keyboard Events:
+  * onKeyDown
+  * onKeyUp
+  * onKeyPress
+
+* Other Common Ones:
+  * onCopy, onCut, onPaste
+  * onLoad, onError (for images)  
+
+### 10 UseStateHook
+* `import { useState } from "react";`
+* ` const [count, setCount] = useState(0);`
+* `const increment = () => setCount(count + 1);`
+* ` <button onClick={increment}>+</button>`
+* useState with a string, array, objects, array of objects
+* useState with an object
+
+### 11 Portals
+* Steps to create:
+  1. in index.html - `<div id="portal-root"></div>`
+  2. in new jsx file - `import ReactDOM from 'react-dom';`
+  3. return rendering changes from 
+      ` return (<div>PortalsLesson</div>);` to 
+      ` ReactDOM.createPortal(child, container).`
+      ex: `return ReactDOM.createPortal(`
+            `<div>PortalsLesson</div>,`
+            `document.getElementById("portal-root")`
+          `);`
+
+### 12 Keys
+* keys in the context of lists - to track the updates specifically
+* keys to force component remounting
+  * The input field gets completely reset when you click "Switch"
+  * Any text you typed in the input will disappear
+  *  React is saying "this is a different input now, not the same one"
+  .
