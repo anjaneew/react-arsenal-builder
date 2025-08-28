@@ -135,4 +135,51 @@ and defining function seperately.
   * The input field gets completely reset when you click "Switch"
   * Any text you typed in the input will disappear
   *  React is saying "this is a different input now, not the same one"
-  .
+
+
+## 02 React Hooks
+
+### 1 useState (same as 01.10)
+* `import { useState } from "react";`
+* ` const [count, setCount] = useState(0);`
+* `const increment = () => setCount(count + 1);`
+* ` <button onClick={increment}>+</button>`
+* useState with a string, array, objects, array of objects
+* useState with an object
+
+### 2 useEffect
+* `import { useEffect, useState } from "react";`
+* `useEffect(function, [dependencies]): `
+  1. `useEffect(() => {})` Runs after every re-render 
+  2. `useEffect(() => {}, [])` Runs only on mount 
+  3. `useEffect(() => {}, [value])` Runs on mount + when value changes 
+
+* React Hook that tells React DO SOME CODE WHEN(following:)
+    * This component re-renders
+    * This component mounts
+    * The state of value   
+
+* USES:
+    1. Event Listeners
+    2. DOM manipulation
+    3. Subscriptions (real-time updates)
+    4. Fetching Data from an API
+      * `response` = the Response object from the fetch
+      * `response.json()` = converts the JSON response body into JavaScript objects
+      * `await response.json()` = waits for that conversion to complete
+      * `const data = await response.json()` = stores the converted JavaScript objects in the data variable
+    5. Clean up when a component unmounts: 
+        `useEffect(() => {`
+          `// setup code`
+          `return () => {`
+            `// cleanup code`
+          `};`
+        `}, []);`   
+      The cleanup can prevent memory leaks and remove unwanted things. 
+      Some use-cases for this are:
+      * Clean up subscriptions
+      * Clean up modals
+      * Remove event listeners
+      * Clear timeouts
+
+  
