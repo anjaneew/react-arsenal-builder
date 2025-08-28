@@ -163,18 +163,21 @@ and defining function seperately.
     1. Event Listeners
     2. DOM manipulation
     3. Subscriptions (real-time updates)
-    4. Fetching Data from an API
+    4. Fetching Data from an API   
+
       * `response` = the Response object from the fetch
       * `response.json()` = converts the JSON response body into JavaScript objects
       * `await response.json()` = waits for that conversion to complete
       * `const data = await response.json()` = stores the converted JavaScript objects in the data variable
     5. Clean up when a component unmounts: 
-        `useEffect(() => {`
-          `// setup code`
-          `return () => {`
-            `// cleanup code`
-          `};`
-        `}, []);`   
+
+        `useEffect(() => {`   
+          `// setup code`    
+          `return () => {`   
+            `// cleanup code`   
+          `};`   
+        `}, []);`       
+
       The cleanup can prevent memory leaks and remove unwanted things. 
       Some use-cases for this are:
       * Clean up subscriptions
