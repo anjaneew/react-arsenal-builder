@@ -183,15 +183,17 @@ and defining function seperately.
       * `response.json()` = converts the JSON response body into JavaScript objects
       * `await response.json()` = waits for that conversion to complete
       * `const data = await response.json()` = stores the converted JavaScript objects in the data variable
-      
+     
     5. Clean up when a component unmounts: 
 
-        `useEffect(() => {`   
-          `// setup code`    
-          `return () => {`   
-            `// cleanup code`   
-          `};`   
-        `}, []);`       
+```
+        useEffect(() => {
+          // setup code    
+          return () => {  
+            // cleanup code  
+          };  
+        }, []);      
+```
 
       The cleanup can prevent memory leaks and remove unwanted things. 
       Some use-cases for this are:
@@ -259,11 +261,14 @@ Provides data directly to components that need it
     `const dish1price = 3.99;`
 
 4. Wrapping our components into Provider component  
-       ` <Food.Provider value={dish1}>`
-            `<Price.Provider value={dish1price}>`
-            `  <Staff />  `
-            `</Price.Provider>`
-       ` </Food.Provider>`
+
+```
+ <Food.Provider value={dish1}>
+            <Price.Provider value={dish1price}>
+              <Staff />  
+            </Price.Provider>
+        </Food.Provider>
+```
 
 5. no middle man passing data, just flow maintained
   `KitchenBelt (Provider)` → `Staff` → `Waiters`→ `Server (Consumer)`      
@@ -275,13 +280,15 @@ Provides data directly to components that need it
 
 7. Consumer Component then use:
 
-  `        <Price.Consumer>`
-  `            {(dish1price) => {`
-  `                return(`
-  `                    <h3>"Dear Sir, The bill is {dish1price}!"</h3>`
-  `                );`
-  `            }}`
-  `        </Price.Consumer>`
+```
+          <Price.Consumer>
+              {(dish1price) => {
+                 return(
+                      <h3>"Dear Sir, The bill is {dish1price}!"</h3>
+                  );
+              }}
+          </Price.Consumer>
+```
 
 ### 04.2 useContext-Hook
 
@@ -298,11 +305,14 @@ Provides data directly to components that need it
 `const cake = "Birthday Cake 🎂";`
 
 4. Provider wrapper
-`      <Surprise1.Provider value={cake}>`
-`        <Surprise2.Provider value={singing}>`
-`            <Chefs />`
-`        </Surprise2.Provider>`
-`      </Surprise1.Provider>`
+
+```
+      <Surprise1.Provider value={cake}
+        <Surprise2.Provider value={singing}>
+            <Chefs />
+        </Surprise2.Provider>
+      </Surprise1.Provider>
+```
 
 5. Flow: Middleman nothing weired
 `Bakery (Provider)` → `Chefs` → `Servers` → `Table (useContext consumer)`
@@ -331,12 +341,14 @@ Provides data directly to components that need it
 `import FlavorDisplay from './04-useContext/exercises/FlavorDisplay.jsx';`
 
 * then use the components
-`            <div className="container">`
-`                <CupcakeMachineProvider>`
-`                    <FlavorDisplay />`
-`                    <FlavorChanger />`
-`                </CupcakeMachineProvider>`
-`            </div>`
+
+```
+            <div className="container">                 <CupcakeMachineProvider>
+                    <FlavorDisplay />
+                    <FlavorChanger />
+                </CupcakeMachineProvider>
+            </div>
+```
 
 **Provider**
 
@@ -355,18 +367,24 @@ create provider component :
 `const [ flavor, setFlavor ] = useState({ flavor: "Vanilla"});`
 
 6. handler function
-`  const updateFlavor = (newFlavor) => {`
-`    setFlavor({ flavor: newFlavor });`
-`  };`
+
+```
+  const updateFlavor = (newFlavor) => {
+    setFlavor({ flavor: newFlavor });
+  };
+```  
 
 7. using provider component with the useState variables and function
-`  return (`
-`    <CupcakeContext.Provider value={{ flavor, updateFlavor}}>` 
+
+```
+  return (
+    <CupcakeContext.Provider value={{ flavor, updateFlavor}}> 
                                     Object as context value
-`      {children}` 
+      {children} 
         {children} prop - Allows Provider to wrap any child components
-`    </CupcakeContext.Provider>`
-`  );`
+    </CupcakeContext.Provider>
+  );
+```
 
 8. export - not default 
 `export { CupcakeContext, CupcakeMachineProvider};`
@@ -397,17 +415,22 @@ variable:
 `    const [ newName, setNewName ] = useState("");`
 
 declare method:
-`    const handleName = (e) => {`
-`        setNewName(e.target.value);`
-`    }`
+```
+    const handleName = (e) => {
+        setNewName(e.target.value);
+    }
+```
 
 using handler method:
-`        <form onSubmit={handleSubmit}>`
-`            <input `
-`                type="text"`
-`                value={newName}`
-`                onChange={(e)=>handleName(e)}`
-`                placeholder="Enter the flavor"`
-`            />`
-`            <button type="submit">Update</button>`
-`        </form>`
+
+```
+       <form onSubmit={handleSubmit}>
+           <input 
+               type="text"
+               value={newName}
+               onChange={(e)=>handleName(e)}
+                placeholder="Enter the flavor"
+           />
+            <button type="submit">Update</button>
+       </form>
+```
