@@ -158,14 +158,18 @@ and defining function seperately.
   1. `import { useState, useEffect } from 'react';`  
   2. `const [data, setData] = useState([]);`
   3. `const FetchDataEffect = () => { ... };`
-  4. `useEffect(() => {`
-    `async function getData() {`
-        `const res = await fetch("https://posts");`
-        `const data = await res.json();`
-        `if(data && data.length) setData(data);`
-    ` }`
-        `getData();`
-    `}, []);`
+  4. 
+  
+  ```
+  useEffect(() => {
+    async function getData() {
+        const res = await fetch("https://posts");
+        const data = await res.json();
+        if(data && data.length) setData(data);
+     }
+        getData();
+    }, []);
+  ```    
 
 
 * React Hook that tells React DO SOME CODE WHEN(following:)
@@ -226,23 +230,31 @@ This is passing properties from one person to another
 **Example:** 
 
 * Customer (origin)`
-`const order = "pork sandwitch";`
-`<Host order={order}/>`
+```
+const order = "pork sandwitch";
+<Host order={order}/>
+```
 
 * Host (middleman - passing)
-`const Host = ({order}) => {`
-   ` return <HeadWaiter order={order} />`
-`}`
+```
+const Host = ({order}) => {
+   return <HeadWaiter order={order} />
+}
+```
 
-* HeadWaiter (middleman - passing)  
-`const HeadWaiter = ({order}) => {`
-   ` return <KitchenStaff order={order}/>`
-`}`
+* HeadWaiter (middleman - passing) 
+``` 
+const HeadWaiter = ({order}) => {
+   return <KitchenStaff order={order}/>
+}
+```
 
 * KitchenStaff (final destination - used)
-`const KitchenStaff = ({order}) => {`
-    `return <h4>Order: "prepare {order}"</h4>`
-`}`
+```
+const KitchenStaff = ({order}) => {
+    return <h4>Order: "prepare {order}"</h4>
+}
+```
 
 ### 04.1 Context API
 Provides data directly to components that need it
@@ -253,12 +265,16 @@ Provides data directly to components that need it
 `import { createContext } from "react";`
 
 2. Creating instance of (createContext)
-`export const Food = createContext();`
-`export const Price = createContext();`
+```
+export const Food = createContext();
+export const Price = createContext();
+```
 
 3. Create variables with data 
-    `const dish1 = "pork sandwich 🥪";`
-    `const dish1price = 3.99;`
+```
+    const dish1 = "pork sandwich 🥪";
+    const dish1price = 3.99;
+```    
 
 4. Wrapping our components into Provider component  
 
@@ -298,8 +314,10 @@ Provides data directly to components that need it
 `import { createContext } from 'react';`
 
 2. export the contexts
-`export const Surprise1 = createContext();`
-`export const Surprise2 = createContext();`
+```
+export const Surprise1 = createContext();
+export const Surprise2 = createContext();
+```
 
 3. variables with data
 `const cake = "Birthday Cake 🎂";`
@@ -320,12 +338,16 @@ Provides data directly to components that need it
 **Consumer**
 
 6. import 
-`import { useContext } from 'react';`
-`import {Surprise1, Surprise2} from './Bakery.jsx';`
+```
+import { useContext } from 'react';
+import {Surprise1, Surprise2} from './Bakery.jsx';
+```
 
 7. create varaibles
-`  const item = useContext(Surprise1);`
-`  const activity = useContext(Surprise2);`
+```
+  const item = useContext(Surprise1);
+  const activity = useContext(Surprise2);
+```
 
 8. use data
 `return <h1>{item}</h1>;`
@@ -336,9 +358,11 @@ Provides data directly to components that need it
 
 * import Provider component
 `import { CupcakeMachineProvider } from './04-useContext/exercises/CupcakeMachine.jsx';`
+
 * import the components
-`import FlavorChanger from './04-useContext/exercises/FlavorChanger.jsx';`
-`import FlavorDisplay from './04-useContext/exercises/FlavorDisplay.jsx';`
+```
+import FlavorChanger from './04-useContext/exercises/FlavorChanger.jsx';import FlavorDisplay from './04-useContext/exercises/FlavorDisplay.jsx';
+```
 
 * then use the components
 
@@ -395,8 +419,10 @@ create provider component :
 9.  Consuming Complex Context Data
 
 import: 
-`import { useContext } from 'react';`
-`import { CupcakeContext } from "./CupcakeMachine.jsx";`
+```
+import { useContext } from 'react';
+import { CupcakeContext } from "./CupcakeMachine.jsx";
+```
 
 variable:
 `const { flavor } = useContext(CupcakeContext);`
@@ -407,12 +433,16 @@ using data:
 10. Consuming Complex Context Methods
 
 import:
-`import { useContext, useState } from 'react';`
-`import { CupcakeContext } from './CupcakeMachine.jsx';`
+```
+import { useContext, useState } from 'react';
+import { CupcakeContext } from './CupcakeMachine.jsx';
+```
 
 variable:
-`    const { updateFlavor } = useContext(CupcakeContext);`
-`    const [ newName, setNewName ] = useState("");`
+```
+    const { updateFlavor } = useContext(CupcakeContext);
+    const [ newName, setNewName ] = useState("");
+```
 
 declare method:
 ```
