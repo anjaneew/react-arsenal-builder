@@ -13,5 +13,5 @@ const Cashier = () => {
     </div>
   );
 };
-
+//Use Context API not the best way
 export default Cashier;
