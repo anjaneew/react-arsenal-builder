@@ -3,7 +3,6 @@ import { Price } from './KitchenBelt.jsx';
 const Cashier = () => {
   return (
     <div>Cashier 👲🧾
-
         <Price.Consumer>
             {(dish1price) => {
                 return(

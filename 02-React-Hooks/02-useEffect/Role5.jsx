@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 
 const Role5 = () => {
 
-    const [data, setData] = useState([]);
+    const [data, setData] = useState([]); 
 
     useEffect(()=>{
         async function getData(){
