@@ -464,3 +464,196 @@ using handler method:
             <button type="submit">Update</button>
        </form>
 ```
+
+### 05 useReducer
+
+* basic syntax: 
+
+```
+import { useReducer } from 'react';
+
+function reducer(state, action) {
+  // ...
+}
+
+function MyComponent() {
+  const [state, dispatch] = useReducer(reducer, { age: 42 });
+  // ...
+} 
+
+```  
+
+1. import
+`import { useReducer } from 'react';`
+
+2. reducer function
+```
+function reducer(state, action) {
+  // ...
+}
+```
+
+3. use a switch inside reducer function to return an object
+```
+function reducer(state, action){
+    switch(action.type){
+        case "increment":
+            return { age: state.age + 1}
+        case  "decrement":
+            return { age: state.age - 1}   
+        default:
+            return state    
+    }
+}
+```
+
+4. variable 
+`const [state, dispatch] = useReducer(reducer, {age: 18});`
+
+5. use state
+`<h1>Age: {state.age}</h1>`
+
+6. use the dispatch function as callback
+`<button onClick={()=> dispatch({type: "increment"})}>+</button>`
+
+### 06 useRef
+
+**Basic Syntax**
+
+1. Import:
+
+`import { useRef } from 'react';`
+
+
+2. make variable
+
+`const inputRef = useRef(null);`
+
+
+3. use in ref property
+```
+        <input 
+            type="text"
+            ref={inputRef}
+        />
+```
+
+4. utilize in function as DOM Manipulation
+
+```
+    const focusInput = () => {
+        if(inputRef.current){
+            inputRef.current.focus();
+        }
+    };
+```
+
+### 07. Custom Hooks
+
+**Basic Syntax:**
+
+***hook***
+1. import: 
+`import { useState, useEffect } from 'react';`
+
+2. variable
+`const [ data, setData ] = useState(null);`
+
+3. main content
+
+```
+    useEffect(()=> {
+        fetch(url)
+            .then((res)=> res.json())
+            .then((data)=>setData(data));
+    }, [url]);
+
+    return data;
+```
+
+4. export:
+`export default useFetch;`
+
+***use in component***
+
+1. Importing our custom hook
+`import useFetch from './useFetch.jsx';`
+
+2. utilizing the hook 
+` const data = useFetch("https://official-joke-api.appspot.com/jokes/random/250");`
+
+**better fetch with error handling:**
+
+* I: import
+`import { useState, useEffect } from 'react';`
+
+* II: hook - starting with lowercase
+```
+const useFetch = (url) => {
+  //code
+}
+```
+
+* III: variables & return
+
+```
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+```
+`return { data, loading, error };`
+
+* IV: useEffect for fetch
+```
+useEffect(()=>{
+  //async function
+fetchData();
+}, [url]);
+```
+
+* V: async function
+
+`const fetchData = async () => {}`
+
+* VI: try catch block
+
+```
+ try {
+  //code here
+} catch (error) {
+  setError(error);
+} finally {
+  setLoading(false);
+}
+```
+
+* VII: fetching inside try block
+
+```
+const response = await fetch(url);
+
+if(!response.ok){
+  throw new Error("Network response was not ok!");
+}
+const result = await response.json();
+setData(result);
+```
+* VIII: export
+`export default useFetch;`
+
+
+### 08. uniqueID
+a React Hook for generating unique IDs that can be passed to accessibility attributes.
+
+1. import
+
+`import { useId } from 'react';`
+
+2. Call useId at the top level of your component 
+`const id = useId();`
+
+3. use it 
+```
+<label htmlFor={`${id}-email`}>Email</label>
+<input type="email" id={`${id}-email`}/>
+```
