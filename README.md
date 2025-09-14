@@ -2,7 +2,7 @@
 
 ## 01 React Fundamentals
 
-#### 01 Basic Syntax 
+### 01 Basic Syntax 
 * function expressions
 * arrow functions
 * registering the component
@@ -11,13 +11,13 @@
   * with parantheses when wrapper elements  - multi-lined jsx
   * single jsx element
 
-#### 02 Website Components
+### 02 Website Components
  * JSX format
  * Header
  * Main
  * Footer
 
- #### 03 JSX Rules
+ ### 03 JSX Rules
 * return single parent element
 * all tags must be closed
 * camelCase
@@ -28,7 +28,7 @@
     * can be used to run js 
     * variables, functions 
 
-#### 04 Lists
+### 04 Lists
 * rendered with loops
 * `map()` method recommended
 * Note: 1:
@@ -45,20 +45,20 @@ object destructring:
 instead of 
 ` {users.map((user)=> {user.id} {user.name}{user.age})}`
   
-#### 05 Props
+### 05 Props
 * allows parent component to pass on data to child components
 * `(props) > {props.name}`
 * `({img, name}) > {img, name}`
 * booleans - conditional rendering
    `<p>Marrital Status: {isMarried ? "married" : "single"}</p>`
 
-#### 06 Children Props
+### 06 Children Props
 * `const ChildA = (props) => {`
   `return (<div>{props.children}</div>);`
   `}`
 * using destructring `{children}`
 
-#### 07 Conditional Rendering
+### 07 Conditional Rendering
 * JSX stored in variables
   `const valid = <p>Welcome to chat room!</p>;`
 * JSX  Components as functions
@@ -68,7 +68,7 @@ instead of
 * Ternary Operator
 `const MyPassword = ({ correct }) => correct? <CorrectPW /> : <WrongPW />;` 
 
-#### 08 Styles
+### 08 Styles
 * Inline - 2 methods:
 * use double `{}` and camelCase ex: `<p style={{backgroundColor: "red"}}></p>`
 * use JSX varaiable ex: `const myStyles = {color: "white"}` then `<p style={myStyles}></p>`
@@ -78,7 +78,7 @@ instead of
 * import the icon in file: `import { PiBirdBold } from "react-icons/pi";` >
 * use icon as a component: `<PiBirdBold />`
 
-#### 09 Events
+### 09 Events
 * camelCase `onClick` instead of `onclick`.
 * written in curly braces `onClick={shoot}` 
 * method 1: BEST `<button onClick={shoot}>Take the Shot!</button>` 
@@ -109,7 +109,7 @@ and defining function seperately.
   * onCopy, onCut, onPaste
   * onLoad, onError (for images)  
 
-#### 10 UseStateHook
+### 10 UseStateHook
 * `import { useState } from "react";`
 * ` const [count, setCount] = useState(0);`
 * `const increment = () => setCount(count + 1);`
@@ -117,7 +117,7 @@ and defining function seperately.
 * useState with a string, array, objects, array of objects
 * useState with an object
 
-#### 11 Portals
+### 11 Portals
 * Steps to create:
   1. in index.html - `<div id="portal-root"></div>`
   2. in new jsx file - `import ReactDOM from 'react-dom';`
@@ -129,7 +129,7 @@ and defining function seperately.
             `document.getElementById("portal-root")`
           `);`
 
-#### 12 Keys
+### 12 Keys
 * keys in the context of lists - to track the updates specifically
 * keys to force component remounting
   * The input field gets completely reset when you click "Switch"
@@ -139,7 +139,7 @@ and defining function seperately.
 
 ## 02 React Hooks
 
-#### 01 useState (same as 01.10)
+### 01 useState (same as 01.10)
 * `import { useState } from "react";`
 * ` const [count, setCount] = useState(0);`
 * `const increment = () => setCount(count + 1);`
@@ -147,7 +147,7 @@ and defining function seperately.
 * useState with a string, array, objects, array of objects
 * useState with an object
 
-#### 02 useEffect
+### 02 useEffect
 * `import { useEffect, useState } from "react";`
 * `useEffect(function, [dependencies]): `
   1. `useEffect(() => {})` Runs after every re-render 
@@ -209,7 +209,7 @@ and defining function seperately.
 * NOTE: document.title = ``Count is ${count}```;`` is common than 
        `document.getElementById("title").textContent = ``Count is ${count}``; `     
 
-#### 03 prop drilling 
+### 03 prop drilling 
 This is passing properties from one person to another
 * Data flows: Customer → Host → HeadWaiter → KitchenStaff
 
@@ -256,7 +256,7 @@ const KitchenStaff = ({order}) => {
 }
 ```
 
-#### 04.1 Context API
+### 04.1 Context API
 Provides data directly to components that need it
 
 **Provider**
@@ -306,7 +306,7 @@ export const Price = createContext();
           </Price.Consumer>
 ```
 
-#### 04.2 useContext-Hook
+### 04.2 useContext-Hook
 
 Provider
 
@@ -352,7 +352,7 @@ import {Surprise1, Surprise2} from './Bakery.jsx';
 8. use data
 `return <h1>{item}</h1>;`
 
-#### 04.3 Advanced useContext with State Management 
+### 04.3 Advanced useContext with State Management 
 
 1. We need to set up Apps.jsx too
 
@@ -464,7 +464,7 @@ using handler method:
             <button type="submit">Update</button>
        </form>
 ```
-#### 05 useReducer
+### 05 useReducer
 
 * basic syntax: 
 
@@ -515,7 +515,7 @@ function reducer(state, action){
 6. use the dispatch function as callback
 `<button onClick={()=> dispatch({type: "increment"})}>+</button>`
 
-#### 06 useRef
+### 06 useRef
 
 **Basic Syntax**
 
@@ -547,7 +547,7 @@ function reducer(state, action){
     };
 ```
 
-#### 07 Custom Hooks
+### 07 Custom Hooks
 
 **Basic Syntax:**
 
@@ -663,7 +663,7 @@ value={name.value} onChange={name.onChange}
 Spread operator {...inputProps} is mainly used with custom hooks like useInput.
 
 
-#### 08 uniqueID
+### 08 uniqueID
 a React Hook for generating unique IDs that can be passed to accessibility attributes.
 
 1. import
