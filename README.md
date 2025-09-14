@@ -308,7 +308,7 @@ export const Price = createContext();
 
 ### 04.2 useContext-Hook
 
-**Provider**
+Provider
 
 1. import
 `import { createContext } from 'react';`
@@ -335,7 +335,7 @@ export const Surprise2 = createContext();
 5. Flow: Middleman nothing weired
 `Bakery (Provider)` → `Chefs` → `Servers` → `Table (useContext consumer)`
 
-**Consumer**
+Consumer
 
 6. import 
 ```
@@ -640,6 +640,28 @@ setData(result);
 * VIII: export
 `export default useFetch;`
 
+**useInput hook**
+
+1. import 
+`import useInput from "../hooks/useInput";`
+
+2. variables
+```
+  const name = useInput("");
+  const email = useInput("");
+```
+
+3. using 
+`<input type="text" {...name} />`
+
+***Spread operator: {...name} shorthand***
+
+`<input type="text" {...name}/>`
+
+Spread operator: {...name} shorthand mean both
+value={name.value} onChange={name.onChange} 
+Spread operator {...inputProps} is mainly used with custom hooks like useInput.
+
 
 ### 08 uniqueID
 a React Hook for generating unique IDs that can be passed to accessibility attributes.
@@ -656,3 +678,4 @@ a React Hook for generating unique IDs that can be passed to accessibility attri
 <label htmlFor={`${id}-email`}>Email</label>
 <input type="email" id={`${id}-email`}/>
 ```
+
