@@ -679,3 +679,7 @@ a React Hook for generating unique IDs that can be passed to accessibility attri
 <input type="email" id={`${id}-email`}/>
 ```
 
+
+## 03 Beginner Projects
+
+1. Counter App
