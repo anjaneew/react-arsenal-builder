@@ -139,7 +139,7 @@ and defining function seperately.
 
 ## 02 React Hooks
 
-### 1 useState (same as 01.10)
+### 01 useState (same as 01.10)
 * `import { useState } from "react";`
 * ` const [count, setCount] = useState(0);`
 * `const increment = () => setCount(count + 1);`
@@ -147,7 +147,7 @@ and defining function seperately.
 * useState with a string, array, objects, array of objects
 * useState with an object
 
-### 2 useEffect
+### 02 useEffect
 * `import { useEffect, useState } from "react";`
 * `useEffect(function, [dependencies]): `
   1. `useEffect(() => {})` Runs after every re-render 
@@ -464,7 +464,6 @@ using handler method:
             <button type="submit">Update</button>
        </form>
 ```
-
 ### 05 useReducer
 
 * basic syntax: 
@@ -548,7 +547,7 @@ function reducer(state, action){
     };
 ```
 
-### 07. Custom Hooks
+### 07 Custom Hooks
 
 **Basic Syntax:**
 
@@ -642,7 +641,7 @@ setData(result);
 `export default useFetch;`
 
 
-### 08. uniqueID
+### 08 uniqueID
 a React Hook for generating unique IDs that can be passed to accessibility attributes.
 
 1. import
