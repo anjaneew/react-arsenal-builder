@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './styles.css';
 
 const TodoApp = () => {
 
@@ -16,26 +17,29 @@ const TodoApp = () => {
        setInput("");
     }
 
-    const removeTodo = (index) => 
+    const removeTodo = (index) => {
        setTodos((todos) => todos.filter((t, id) => id !== index));
+    }
     
 
   return (
-    <div>
-        <h2>Project 2: </h2>
-        <h1>~ToDoApp~</h1>
-        <div>
+    <div className="container">
+        <div className="container">
+            <h2>Project 2: </h2>
+            <h1>~ToDoApp~</h1>
+        </div>
+
+        <div className="container">
             <input type="text" placeholder="Enter task" value={input} onChange={handleInput}/>
             <button onClick={handleSubmit}>Submit</button>
         </div>
         
-        <div>
-            <ul>
+        <div className="container">
+            <ul className="todos-list">
             {todos.map((task, index)=> 
-                <li key={index}>{task} - <button onClick={()=>removeTodo(index)}>✖️</button></li> 
+                <li key={index} className="todo">{task} - <button onClick={()=>removeTodo(index)} className="close">✖️</button></li> 
             )}
             </ul>
-            
         </div>
     </div>
   );
