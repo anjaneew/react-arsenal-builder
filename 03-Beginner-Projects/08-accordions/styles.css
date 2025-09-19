@@ -1,0 +1,50 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color:  rgb(21, 1, 134);
+    color: #139beb;
+    font-family: sans-serif;
+    flex-direction: column;
+}
+
+.container{
+  border: 2px solid white;
+}
+
+.accordion-card{
+  margin: 20px;
+  padding: 20px;
+  background: rgb(73, 73, 73);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 40rem;
+}
+
+.card-title{
+  display: flex;
+  justify-content: space-between;
+  width: 50rem;
+}
+
+.icon{
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+p.card-info {
+  width: 30rem;
+  padding: 20px 0;
+  line-height: 1.3;
+}
