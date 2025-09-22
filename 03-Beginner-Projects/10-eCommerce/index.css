@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 15px;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(97, 97, 97);
+}
+
+li{
+    list-style: none;
+}
+
+.btns {
+    padding: 10px 20px;
+    margin-right: 6px;
+    background: transparent;
+    border: 0.6px solid #ccc;
+    border-radius: 5px;
+    color: #323232;
+    cursor: pointer;
+}
+
+h1, h2 {
+    text-align: center;
+    padding: 10px 15px;
+    font-style: italic;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
