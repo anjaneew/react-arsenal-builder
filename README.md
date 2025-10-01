@@ -682,4 +682,124 @@ a React Hook for generating unique IDs that can be passed to accessibility attri
 
 ## 03 Beginner Projects
 
-1. Counter App
+### Counter App
+### Todo App
+### Meals App 
+npm i axios
+
+
+## React File Naming Convention Summary
+
+### 📁 Folder Names
+
+Use lowercase/kebab-case: components/, navigation/, user-profile/
+
+### ⚛️ Component Files
+
+Always PascalCase: `Nav.jsx, ProductCard.jsx, UserProfile.jsx`
+Use `.jsx` for files containing JSX
+Use `.js` for pure JavaScript (no JSX)
+
+### 🎨 CSS Files
+
+Match component name: `Nav.css, ProductCard.css, UserProfile.css`
+Global CSS: Use lowercase (`index.css, globals.css`)
+
+### 📄 Data Files
+
+Use `.js` for pure JavaScript data
+Use `.jsx` if contains JSX elements
+Variable names: camelCase (`const data`, `const userData`)
+
+### 🏗️ Structure
+```
+src/
+  components/
+    navigation/
+      Nav.jsx
+      Nav.css
+    product-card/
+      ProductCard.jsx
+      ProductCard.css
+  data/
+    products.jsx
+    config.js
+  App.jsx
+  index.css
+
+``` 
+
+## React Import Extension Summary
+
+### CSS Files
+
+Always include `.css` extension: import `'./Nav.css'`
+Required - won't work without extension
+
+### JS/JSX Files
+
+Extension optional but recommended: `import Nav from './Nav.jsx'`
+Including extension provides better clarity and tool support
+
+### Best Practice
+
+Use full extensions for all imports for consistency and clarity
+```
+javascriptimport Nav from './Nav.jsx';
+import './Nav.css';
+import data from './data.js';
+```
+
+## importing pathways if the files are above the level
+
+* importing  `react-monster/src/components/Input.jsx`
+* to  `react-monster/src/components/sidebar/category/Category.jsx`
+
+#### File Structure
+
+```
+react-monster/
+ └─ src/
+     └─ components/
+         ├─ Input.jsx
+         └─ sidebar/
+             └─ category/
+                 └─ Category.jsx
+```
+* correct way:  `import Input from '../../Input';`
+
+
+## React Router
+
+### Simple navigation 
+
+* Step 1 install
+`npm install react-router-dom`
+
+* Step 2 import
+  Link: Creates navigation links that update the URL
+  Routes: A container for all your route definitions
+  Route: Defines a mapping between a URL path and a component
+
+
+* Step 3 Wrap Your App with BrowserRouter
+
+* Step 4 navigation link
+`<Link to="/">Home</Link>|{""}`
+root path `("/")`    `{""}`renders an empty string - so links don’t stick together
+```
+  <nav>
+      <Link to="/">Home</Link>|{" "}
+      <Link to="/about">About us</Link>|{" "}
+      <Link to="/contact">Contact</Link>|{" "}
+  </nav>
+```
+
+* Step 5 Routes & Route
+```
+  <Routes>
+      <Route path="/" element={<Home />}/>
+      <Route path="/about" element={<About />}/>
+      <Route path="/contact" element={<Contact/>}/>
+  </Routes>
+```      
