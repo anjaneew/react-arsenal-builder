@@ -777,14 +777,38 @@ react-monster/
 `npm install react-router-dom`
 
 * Step 2 import
+`import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';`
   Link: Creates navigation links that update the URL
   Routes: A container for all your route definitions
   Route: Defines a mapping between a URL path and a component
 
-
 * Step 3 Wrap Your App with BrowserRouter
+```
+function App() {
+  return (
+    <BrowserRouter>
+      {/* Your app content */}
+    </BrowserRouter>
+  );
+}
+```
 
-* Step 4 navigation link
+* Step 4 Create Views
+```
+function Home() {
+  return <h1>Home Page</h1>;
+}
+
+function About() {
+  return <h1>About Page</h1>;
+}
+
+function Contact() {
+  return <h1>Contact Page</h1>;
+}
+``` 
+
+* Step 5 navigation link
 `<Link to="/">Home</Link>|{""}`
 root path `("/")`    `{""}`renders an empty string - so links don’t stick together
 ```
@@ -795,11 +819,99 @@ root path `("/")`    `{""}`renders an empty string - so links don’t stick toge
   </nav>
 ```
 
-* Step 5 Routes & Route
+* Step 6 Routes & Route
+Route is nested inside Routes
+Then each Route has path and the component
 ```
   <Routes>
       <Route path="/" element={<Home />}/>
       <Route path="/about" element={<About />}/>
       <Route path="/contact" element={<Contact/>}/>
   </Routes>
+```      
+
+### Component Navigation
+
+* Import component 
+no functions inside the app
+```
+import Home from './components/Home.jsx';
+import Contact from './components/Contact.jsx';
+import About from './components/About.jsx';
+```
+
+* use them in Route
+```
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/about" element={<About />}/>
+        <Route path="/contact" element={<Contact/>}/>
+      </Routes>
+```   
+
+### Nested Routes
+
+* import Outlet too
+`import { BrowserRouter, Routes, Route, Link, Outlet } from 'react-router-dom';`
+
+* put function inside app with Outlet
+
+```
+function Books(){
+  return(
+    <div>
+      <p>📚📔📕📗📘📙📑🔖📖🔖🧾</p>
+      <h1>Books</h1>
+      <nav>
+        <Link to="/books/fiction">Fiction</Link>|{" "}
+        <Link to="/books/nonfiction">Non-Fiction</Link>
+      </nav>
+      <Outlet />
+    </div>
+  );
+};
+```
+
+* the inner functions 
+These can be inside app or imported components. 
+
+* path has to go from a common branch
+`<Link to="/books">Books</Link>`
+
+
+* nested routes
+```
+        <Route path="/books" element={<Books />}>
+          <Route path="fiction" element={<Fiction/>}/>
+          <Route path="nonfiction" element={<NonFiction/>}/>
+        </Route>
+```
+
+### NavLink to style active links
+
+1. import NavLink instead of link
+
+`import { BrowserRouter, Routes, Route, NavLink, Outlet } from 'react-router-dom';`
+
+2. styling function inside the app
+```
+//style function for active links
+const navLinkStyles = ({ isActive }) => ({
+  color: isActive ? '#007bff' : '#333',
+  textDecoration: isActive ? 'none' : 'underline',
+  fontWeight: isActive? 'bold' : 'normal',
+  padding: '5px 10px'
+});
+```
+
+3. using NavLink inside BrowserRouter
+
+```
+      {/*Navigation with NavLink for active styling*/}
+      <nav style={{marginBottom: '20px'}}>
+        <NavLink to="/" style={navLinkStyles}>Home</NavLink>|{" "}
+        <NavLink to="/about" style={navLinkStyles}>About us</NavLink>|{" "}
+        <NavLink to="/contact" style={navLinkStyles}>Contact</NavLink>|{" "}
+        <NavLink to="/books" style={navLinkStyles}>Books</NavLink>
+      </nav>
 ```      
