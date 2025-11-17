@@ -915,3 +915,71 @@ const navLinkStyles = ({ isActive }) => ({
         <NavLink to="/books" style={navLinkStyles}>Books</NavLink>
       </nav>
 ```      
+
+## TypeScript
+
+### How to Run 
+
+Method 1 : 
+
+```
+npm init -y
+
+clear
+
+npm install -y typescript
+
+tsc -v
+
+npm install typescript
+```
+
+(inside a file)
+```
+let a: number = 5;
+let b: number = 6;
+console.log(a + b);
+```
+
+Manage > settings > open settings > settings.json
+(replace "typescript": "ts-node", with following)
+
+
+(for windows)
+```
+"code-runner.exexutorMap": {
+
+ "typescript": "cd &dir && tsc $fileName && node $fileNameWithoutExt.js",
+}
+```
+
+(for Linux)
+```
+"code-runner.exexutorMap": {
+ "typescript": "cd \"$dir\" && tsc \"$fileName\" && node \"$fileNameWithoutExt.js\""
+}
+```
+
+Method 2 : NOT recommended
+
+```
+sudo apt update
+
+sudo apt upgrade
+
+sudo apt install nodejs
+
+sudo apt install npm
+
+node -v
+
+npm -v
+
+tsc -v
+
+npm install -g typescript
+
+tsc -v
+
+npm i -g ts-node
+
