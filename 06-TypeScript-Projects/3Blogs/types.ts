@@ -5,3 +5,5 @@ export interface Blog {
     image: string;
     time: string;
 }
+
+//interface
