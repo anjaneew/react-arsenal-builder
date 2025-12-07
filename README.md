@@ -983,3 +983,24 @@ tsc -v
 
 npm i -g ts-node
 
+## TypeScript Projects
+
+### Ecom Advanced Filteration System
+
+1. Installation
+
+```
+npm create vite@latest my-react-app --template
+```
+Creates a new Vite project named "my-react-app"
+`--template` flag lets you choose a template (React, React + TypeScript, etc.)
+
+```
+npm i axios lucide-react react-router-dom
+```
+`axios` - HTTP client for API requests
+`lucide-react` - Icon library (alternative to react-icons)
+`react-router-dom` - Routing library for navigation between pages
+
+TailwindCSS Setup
+https://tailwindcss.com/docs/guides/vite
